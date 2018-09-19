@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=zencoin
+Comment=zencoin P2P Cryptocurrency
+Exec=zencoin-qt %u
+Terminal=false
+Type=Application
+Icon=zencoin128
+MimeType=x-scheme-handler/zencoin;
+Categories=Office;Finance;
+Name[ru]=zencoin-qt.desktop.desktop

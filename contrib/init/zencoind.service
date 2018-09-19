@@ -1,0 +1,26 @@
+[Unit]
+Description=zencoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=zencoin
+Group=zencoin
+
+Type=forking
+PIDFile=/var/lib/zencoind/zencoind.pid
+
+ExecStart=/usr/bin/zencoind -daemon -pid=/var/lib/zencoind/zencoind.pid \
+          -conf=/etc/zencoin/zencoin.conf -datadir=/var/lib/zencoind
+
+ExecStop=-/usr/bin/zencoin-cli -conf=/etc/zencoin/zencoin.conf \
+         -datadir=/var/lib/zencoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
